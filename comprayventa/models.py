@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class auto(models.Model):
+class Auto(models.Model):
 	marca = models.CharField(max_length=200)
 	modelo = models.CharField(max_length=200)
 	patente = models.CharField(max_length=200)
