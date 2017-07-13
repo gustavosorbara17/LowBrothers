@@ -1,0 +1,46 @@
+Feedback
+--------
+
+Me gustaría ver más cosas en el proyecto, me parece que se
+queda medio corto en terminos de lo que esperabamos.
+
+Les corregí un error que tenía que ver con la ubicación de la carpeta
+"static", la cual no va dentro de templates, sino al lado de la misma
+(dentro de comprayventa). Eso hacia que no se estuvieran cargando las
+imagenes correctamente.
+
+Algunos detalles adicionales:
+
+En views tienen el siguiente código:
+
+def inicio(request):
+    autosvar = Auto.objects.all()
+    return render(request, 'comprayventa/html.html', {'listaAutos': autosvar})
+
+La página principal no muestra el listado de autos, por lo que pasarle la lista de
+todos los autos al mismo es innecesario. O sea
+
+autosvar = Auto.objects.all()
+
+lo que esta haciendo es crear una variable con todos los autos, y
+
+{'listaAutos': autosvar}
+
+lo que hace es decirle al sistema que dentro del HTML, vas a poder usar la lista de autos
+con el nombre 'listaAutos'.
+
+Eso está bien para el listado, pero no para el inicio.
+
+
+A continuación ademas dejo algunas cosas extra que estaría bueno ver
+implementadas para darle un buen cierre a la aplicación:
+
+TODO
+----
+
+* Borrar archivos que no se estan utilizando en el proyecto (Ej. imagenes dentro de templates y templates sin uso)
+* Agregar estilo a la pagina de listado de autos
+* Poder filtrar el listado de autos por marca
+* Poder dar click sobre un auto y ver más información del mismo
+* Agregar fotos para cada auto
+* Poder reservar un auto o algo así
