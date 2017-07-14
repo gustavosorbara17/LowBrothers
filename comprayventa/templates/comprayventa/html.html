@@ -1,15 +1,24 @@
-  <HTML>
+{% load static %}
 
+
+<!DOCTYPE html>
+  <HTML>
+<meta charset="UTF-8"> 
 <HEAD>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="/home/informatica/Escritorio/LowBrothers/comprayventa/templates/comprayventa/Iconodeautos.jpg">
+  
+  <link rel="shortcut icon" href="{% static 'Iconodeautos.jpg' %}">
+  
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <style>
 
 html {height: 100%; left: 100%; right: 100%;}
-body {background-image: url("/home/informatica/Escritorio/LowBrothers/comprayventa/templates/comprayventa/muscle-cars-wallpaper.jpg"); background-size: cover; background-repeat: no-repeat;}
+body {background-image: url("{% static 'LowBrothersFondo2.jpg' %}"); background-size: cover; background-repeat: no-repeat;}
 	.trans{
 	  background-color:white;
 	  color:black
@@ -17,6 +26,8 @@ body {background-image: url("/home/informatica/Escritorio/LowBrothers/comprayven
           text-align:center;
 
  }
+
+
 
 #header {
   height: 100px;
@@ -27,7 +38,7 @@ body {background-image: url("/home/informatica/Escritorio/LowBrothers/comprayven
 }
  
 #logo {
-  background: transparent url(/home/informatica/Escritorio/LowBrothers/comprayventa/templates/comprayventa/Iconodeautos.jpg) no-repeat;
+  background: transparent url("{% static 'Iconodeautos.jpg' %}") no-repeat;
   float: left;
 }
 #logo a {
@@ -39,24 +50,30 @@ body {background-image: url("/home/informatica/Escritorio/LowBrothers/comprayven
 }
   </style>
 
-<TITLE>Lista</TITLE>
+<TITLE>Listado de autos</TITLE>
 
 </HEAD>
 
 <BODY>
 <div class="container">
 
-  <center><h1><b><u><p style="color:#0000FF";>Lista de autos.</p></u></b></h1></center>
+  <center><h1><b><p style="color:#0000FF";>Lista de autos.</p></b></h1></center>
 
 </div>
 
+<div class="container">
  {% for auto in listaAutos  %}
         <div>
-            <p>Marca: {{ auto.marca }}</p>
-            <h1><a href="">{{ auto.patente }}</a></h1>
-            <p>Tipo:{{ auto.tipo }}</p>
+            
+            <a type="button" class="btn btn-success" href="masdetalles.html"><p>Marca: {{ auto.marca }}</p>
+            <p>Modelo: {{ auto.modelo }}</p></a>
+        <br><br><br>
+        <h1><a href="">Mas detalles{{ comprayventa.masdetalles }}</a></h1>
         </div>
+
+        
     {% endfor %}
+</div>
    
 
 
@@ -64,3 +81,4 @@ body {background-image: url("/home/informatica/Escritorio/LowBrothers/comprayven
 </BODY>
 
 </HTML> 
+
